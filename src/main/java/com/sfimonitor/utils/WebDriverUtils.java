@@ -56,4 +56,20 @@ public class WebDriverUtils {
     public static void setImplicitWait(WebDriver driver, long timeout, TimeUnit unit) {
         driver.manage().timeouts().implicitlyWait(timeout, unit);
     }
+
+    public static void selectDropdownOption(WebDriver driver, By dropdownLocator, String optionText) {
+        WebElement dropdown = waitForElementClickable(driver, dropdownLocator);
+        dropdown.click();
+
+        // Wait for options to appear
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        // Select the option (you might need to adjust this based on your actual dropdown structure)
+        WebElement option = driver.findElement(By.xpath("//li[contains(text(), '" + optionText + "')]"));
+        option.click();
+    }
 }

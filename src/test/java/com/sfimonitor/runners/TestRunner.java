@@ -15,7 +15,8 @@ import org.junit.runner.RunWith;
                 "junit:target/cucumber-reports/cucumber.xml"
         },
         monochrome = true,
-        tags = "@smoke or @assets" // Run both smoke and assets tests
+        tags = "@userManagement"
+       // tags = "@smoke or @assets" // Run both smoke and assets tests
 )
 public class TestRunner {
 }
